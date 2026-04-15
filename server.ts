@@ -50,7 +50,7 @@ function setupProductionMode(app: express.Application) {
   console.log(`Serving static files from: ${distPath}`);
   
   app.use(express.static(distPath));
-  app.get("/*", (req, res) => {
+  app.use((req, res) => {
     const indexPath = path.join(distPath, "index.html");
     res.sendFile(indexPath, (err) => {
       if (err) {
