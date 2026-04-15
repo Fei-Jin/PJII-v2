@@ -88,8 +88,8 @@ export default function FeaturedJournals() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="secondary" className="w-full font-semibold" asChild>
-                    <a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer">Kunjungi Jurnal</a>
+                  <Button variant="secondary" className="w-full font-semibold" render={<a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer" />}>
+                    Kunjungi Jurnal
                   </Button>
                 </CardFooter>
               </Card>

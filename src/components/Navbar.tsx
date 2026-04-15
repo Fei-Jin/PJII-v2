@@ -62,16 +62,18 @@ export default function Navbar() {
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                           {link.items.map((item) => (
                             <li key={item.title}>
-                              <NavigationMenuLink asChild>
-                                <a
-                                  href="#services"
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                >
-                                  <div className="text-sm font-medium leading-none">{item.title}</div>
-                                  <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                                    {item.description}
-                                  </p>
-                                </a>
+                              <NavigationMenuLink
+                                render={
+                                  <a
+                                    href="#services"
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                  />
+                                }
+                              >
+                                <div className="text-sm font-medium leading-none">{item.title}</div>
+                                <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                                  {item.description}
+                                </p>
                               </NavigationMenuLink>
                             </li>
                           ))}
@@ -92,8 +94,8 @@ export default function Navbar() {
           </NavigationMenu>
 
           <div className="flex items-center gap-4 border-l pl-8">
-            <Button asChild>
-              <a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer">Hubungi Kami</a>
+            <Button render={<a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer" />}>
+              Hubungi Kami
             </Button>
           </div>
         </div>
@@ -143,8 +145,8 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-4 flex flex-col gap-3">
-                <Button className="w-full" asChild>
-                  <a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer">Hubungi Kami</a>
+                <Button className="w-full" render={<a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer" />}>
+                  Hubungi Kami
                 </Button>
               </div>
             </div>

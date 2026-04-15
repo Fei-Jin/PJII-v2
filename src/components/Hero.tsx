@@ -35,17 +35,13 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="h-14 px-8 text-base font-semibold group" asChild>
-                <a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer">
-                  Submit Artikel
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </a>
+              <Button size="lg" className="h-14 px-8 text-base font-semibold group" render={<a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer" />}>
+                Submit Artikel
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold bg-white/5 border-white/20 text-white hover:bg-white/10" asChild>
-                <a href="#news">
-                  <PlayCircle className="mr-2 h-5 w-5" />
-                  Lihat Panduan
-                </a>
+              <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold bg-white/5 border-white/20 text-white hover:bg-white/10" render={<a href="#news" />}>
+                <PlayCircle className="mr-2 h-5 w-5" />
+                Lihat Panduan
               </Button>
             </div>
 

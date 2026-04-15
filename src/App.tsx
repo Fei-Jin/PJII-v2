@@ -11,6 +11,7 @@ import FeaturedJournals from "./components/FeaturedJournals";
 import News from "./components/News";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ChatBot from "./components/ChatBot";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -109,8 +110,8 @@ export default function App() {
                 </div>
 
                 <div className="pt-6">
-                  <Button size="lg" className="group" asChild>
-                    <a href="#contact">Konsultasi Sekarang</a>
+                  <Button size="lg" className="group" render={<a href="#contact" />}>
+                    Konsultasi Sekarang
                   </Button>
                 </div>
               </motion.div>
@@ -147,11 +148,11 @@ export default function App() {
                 Bergabunglah dengan ratusan peneliti lainnya dan tingkatkan visibilitas riset Anda bersama PJII.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-bold" asChild>
-                  <a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer">Hubungi Kami Sekarang</a>
+                <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-bold" render={<a href="https://wa.me/628975841020" target="_blank" rel="noopener noreferrer" />}>
+                  Hubungi Kami Sekarang
                 </Button>
-                <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-bold border-white text-white hover:bg-white hover:text-primary" asChild>
-                  <a href="#contact">Konsultasi Gratis</a>
+                <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-bold border-white text-white hover:bg-white hover:text-primary" render={<a href="#contact" />}>
+                  Konsultasi Gratis
                 </Button>
               </div>
             </motion.div>
@@ -160,6 +161,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <ChatBot />
     </div>
   );
 }
