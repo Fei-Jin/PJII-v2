@@ -18,10 +18,25 @@ export default defineConfig(({mode}) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
-            'vendor-utils': ['motion', 'lucide-react', 'class-variance-authority', 'tailwind-merge', 'clsx'],
-            'vendor-ai': ['@google/genai'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor-react';
+              }
+              if (id.includes('@google/genai')) {
+                return 'vendor-ai';
+              }
+              if (
+                id.includes('motion') ||
+                id.includes('lucide-react') ||
+                id.includes('class-variance-authority') ||
+                id.includes('tailwind-merge') ||
+                id.includes('clsx')
+              ) {
+                return 'vendor-utils';
+              }
+              return 'vendor';
+            }
           },
         },
       },
