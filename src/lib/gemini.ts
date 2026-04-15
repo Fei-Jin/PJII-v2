@@ -10,7 +10,7 @@ export async function getChatResponse(messages: { role: "user" | "model"; parts:
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error || "Failed to get AI response");
+      throw new Error(errorData.error || "Gagal menghubungi server AI");
     }
 
     const data = await response.json();

@@ -43,7 +43,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold tracking-tight text-primary leading-none">PJII</span>
-            <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">Publikasi Jurnal Ilmiah</span>
+            <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">Publikasi Jurnal Ilmiah Indonesia</span>
           </div>
         </a>
 

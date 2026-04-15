@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT || 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   app.use(express.json());
 
@@ -27,7 +27,7 @@ Be professional, academic yet accessible, and always encourage them to consult v
 Keep responses concise and helpful.
 `;
 
-  // API routes can be added here
+  // API routes
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
@@ -38,26 +38,25 @@ Keep responses concise and helpful.
       const apiKey = process.env.GEMINI_API_KEY;
 
       if (!apiKey) {
-        return res.status(500).json({ error: "GEMINI_API_KEY is not set on the server" });
+        console.error("GEMINI_API_KEY is missing in environment variables");
+        return res.status(500).json({ error: "Konfigurasi AI belum lengkap di server." });
       }
 
-      const genAI = new GoogleGenAI(apiKey);
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: SYSTEM_INSTRUCTION
-      });
-
-      const response = await model.generateContent({
+      const ai = new GoogleGenAI({ apiKey });
+      
+      const response = await ai.models.generateContent({
+        model: "gemini-3-flash-preview",
         contents: messages,
-        generationConfig: {
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
           temperature: 0.7,
         },
       });
 
-      res.json({ text: response.response.text() });
+      res.json({ text: response.text });
     } catch (error) {
       console.error("Gemini API Error:", error);
-      res.status(500).json({ error: "Failed to get response from AI" });
+      res.status(500).json({ error: "Gagal mendapatkan respon dari AI." });
     }
   });
 
